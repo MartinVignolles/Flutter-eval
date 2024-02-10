@@ -1,0 +1,34 @@
+[
+    {
+        "heure": "14:00",
+        "distribution": "Distribution programmée"
+    },
+    {
+        "heure": "15:00",
+        "distribution": "Distribution manuelle"
+    },
+    {
+        "heure": "16:00",
+        "distribution": "Distribution manuelle"
+    },
+    {
+        "heure": "17:00",
+        "distribution": "Distribution programmée"
+    },
+    {
+        "heure": "18:00",
+        "distribution": "Distribution manuelle"
+    },
+    {
+        "heure": "19:00",
+        "distribution": "Distribution programmée"
+    },
+    {
+        "heure": "20:00",
+        "distribution": "Distribution programmée"
+    },
+    {
+        "heure": "21:00",
+        "distribution": "Distribution manuelle"
+    }
+]

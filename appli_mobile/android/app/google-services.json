@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "40150436173",
+    "project_id": "ibowl-c91ed",
+    "storage_bucket": "ibowl-c91ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:40150436173:android:a1e69950a3769e847e8f04",
+        "android_client_info": {
+          "package_name": "com.example.appli_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "40150436173-t3mup5ve71p3eqdvh3m4dgr83am86158.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appli_mobile",
+            "certificate_hash": "d0d5250b0f689c4ae039c42ce2d15c62c5c106d1"
+          }
+        },
+        {
+          "client_id": "40150436173-dve4kk5ukhj31akr5fucmem100vqqdga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCXZjqbvL2j3svELIJs677Z_WQtEqp3GY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "40150436173-dve4kk5ukhj31akr5fucmem100vqqdga.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "40150436173-45f8p82j7e17bm9nj9ick7scpfgf2p0b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appliMobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,39 @@
+[
+    {
+        "heure": "14:00",
+        "distribution": "Distribution programmée",
+        "jour": "lundi 15 octobre",
+        "programme": 1,
+        "gamelle": [
+            "Tigrou"
+        ]
+    },
+    {
+        "heure": "16:00",
+        "distribution": "Distribution programmée",
+        "jour": "lundi 15 octobre",
+        "programme": 1,
+        "gamelle": [
+            "Tigrou"
+        ]
+    },
+    {
+        "heure": "18:00",
+        "distribution": "Distribution manuelle",
+        "jour": "lundi 15 octobre",
+        "programme": 2,
+        "gamelle": [
+            "Rex"
+        ]
+    },
+    {
+        "heure": "20:00",
+        "distribution": "Distribution programmée",
+        "jour": "lundi 15 octobre",
+        "programme": 6,
+        "gamelle": [
+            "Tigrou",
+            "Rex"
+        ]
+    }
+]
