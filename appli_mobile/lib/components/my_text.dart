@@ -4,13 +4,11 @@ class MyText extends StatelessWidget {
   final String hintText;
   final double fontSize;
   final FontWeight fontWeight;
-  final String fontFamily;
 
   const MyText(
       {super.key,
       required this.hintText,
       required this.fontSize,
-      this.fontFamily = 'Sniglet',
       this.fontWeight = FontWeight.normal});
 
   @override
@@ -20,11 +18,7 @@ class MyText extends StatelessWidget {
       child: Text(
         hintText,
         style: TextStyle(
-          fontSize: fontSize,
-          color: Colors.white,
-          fontWeight: fontWeight,
-          fontFamily: fontFamily,
-        ),
+            fontSize: fontSize, color: Colors.white, fontWeight: fontWeight),
       ),
     );
   }

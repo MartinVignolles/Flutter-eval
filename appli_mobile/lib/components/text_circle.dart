@@ -28,7 +28,6 @@ class MyTextCircle extends StatelessWidget {
             child: Text(
               hintText,
               style: TextStyle(
-                fontFamily: 'Sniglet',
                 fontSize: fontSize,
                 color: colorText,
               ),

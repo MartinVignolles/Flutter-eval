@@ -1,7 +1,5 @@
 import 'dart:convert';
 import 'package:appli_mobile/components/distribution_card.dart';
-import 'package:appli_mobile/components/event_pop_up.dart';
-import 'package:appli_mobile/components/my_button.dart';
 import 'package:appli_mobile/components/my_text.dart';
 import 'package:appli_mobile/components/text_circle.dart';
 import 'package:appli_mobile/decoration/constraints.dart';
@@ -52,11 +50,11 @@ class CalendrierPageState extends State<CalendrierPage> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-            centerTitle: true,
-            title: const MyText(
-                hintText: "Distributions Programmées", fontSize: 20),
-            backgroundColor: couleurAffichageSombre,
-            automaticallyImplyLeading: false),
+          centerTitle: true,
+          title:
+              const MyText(hintText: "Distributions Programmées", fontSize: 20),
+          backgroundColor: couleurAffichageSombre,
+        ),
         body: Column(
           children: [
             Padding(
@@ -96,19 +94,11 @@ class CalendrierPageState extends State<CalendrierPage> {
                 ),
               ),
             ),
-            MyButton(
-              fontSize: 18,
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return const AddEventPopup(
-                      etat: ETAT.creation,
-                    ); // Votre fenêtre pop-up
-                  },
-                );
-              },
-              text: '+ Programme',
+            const MyTextCircle(
+              hintText: "+ Programme",
+              fontSize: 20,
+              color: couleurAffichageSombre,
+              colorText: Colors.white,
             )
           ],
         ));

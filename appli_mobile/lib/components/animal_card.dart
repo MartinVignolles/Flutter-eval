@@ -78,7 +78,6 @@ class AnimalCardState extends State<AnimalCard> {
                               ),
                         subtitle: isEditing
                             ? MyTextField(
-                                textInputType: TextInputType.number,
                                 controller: ageController,
                                 hintText: 'Age de l\'animal',
                               )

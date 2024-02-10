@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:appli_mobile/components/historique_card.dart';
+import 'package:appli_mobile/components/distribution_card.dart';
 import 'package:appli_mobile/components/my_text.dart';
 import 'package:appli_mobile/decoration/constraints.dart';
-import 'package:appli_mobile/donnees/model/historique_model.dart';
+import 'package:appli_mobile/donnees/model/evenement.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
+import 'package:http/http.dart' as http;
 
 class HistoriquePage extends StatefulWidget {
   const HistoriquePage({super.key});
@@ -16,7 +17,7 @@ class HistoriquePage extends StatefulWidget {
 
 class HistoriquePageState extends State<HistoriquePage> {
   bool loaded = false;
-  late List<HistoriqueModel> historique;
+  late List<Evenement> evenements;
   @override
   void initState() {
     super.initState();
@@ -24,14 +25,15 @@ class HistoriquePageState extends State<HistoriquePage> {
   }
 
   Future<void> loadEvenement() async {
-    String jsonString =
-        await rootBundle.loadString('lib/donnees/json/historique.json');
-    List<dynamic> jsonList = await json.decode(jsonString);
-    setState(() {
-      historique =
-          jsonList.map((json) => HistoriqueModel.fromJson(json)).toList();
-      loaded = true;
-    });
+    try {
+      final jsonData = await fetchDataFromMockaroo(apiKey, 15);
+      setState(() {
+        evenements = jsonData.map((json) => Evenement.fromJson(json)).toList();
+        loaded = true;
+      });
+    } catch (e) {
+      print('Erreur lors du chargement des données: $e');
+    }
   }
 
   @override
@@ -39,10 +41,11 @@ class HistoriquePageState extends State<HistoriquePage> {
     return Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
-            title: const MyText(hintText: "Historique", fontSize: 25),
-            backgroundColor: couleurAffichageSombre,
-            centerTitle: true,
-            automaticallyImplyLeading: false),
+          title: const MyText(
+              hintText: "Historique généré aléatoirement", fontSize: 20),
+          backgroundColor: couleurAffichageSombre,
+          centerTitle: true,
+        ),
         body: Column(
           children: [
             Expanded(child: buildEvent()),
@@ -50,20 +53,33 @@ class HistoriquePageState extends State<HistoriquePage> {
         ));
   }
 
+  Future<List<Map<String, dynamic>>> fetchDataFromMockaroo(
+      String apiKey, int rowCount) async {
+    final apiUrl =
+        'https://api.mockaroo.com/api/2372ff70?count=$rowCount&key=$apiKey';
+    final response = await http.get(Uri.parse(apiUrl));
+
+    if (response.statusCode == 200) {
+      List<dynamic> jsonData = json.decode(response.body);
+      return jsonData.cast<Map<String, dynamic>>();
+    } else {
+      throw Exception('Failed to load data from Mockaroo API');
+    }
+  }
+
   Widget buildEvent() {
     if (!loaded) {
       return const Center(child: CircularProgressIndicator());
     } else {
       return ListView.builder(
-        itemCount: historique.length,
+        itemCount: evenements.length,
         itemBuilder: (context, index) {
-          return HistoriqueCard(
-            gamelle: historique[index].gammelle,
-            heure: historique[index].heure,
-            jour: historique[index].jour,
-            numProgramme: historique[index].programme,
-            distribution: historique[index].distribution,
-          );
+          return DistributionCard(
+              animalName: evenements[index].name,
+              heure: evenements[index].heure,
+              onPressed: () {},
+              numProgramme: 2,
+              isActivate: evenements[index].activate);
         },
       );
     }
